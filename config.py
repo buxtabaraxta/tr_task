@@ -19,8 +19,13 @@ class DevConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data.db')
     # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://buxtabaraxta:07079185Qq@buxtabaraxta.mysql.pythonanywhere-services.com/buxtabaraxta@tr_task'
 
+class TestConfig(Config):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///'
+
 config = {
     'devconfig': DevConfig,
+    'testconfig': TestConfig,
 
     'default': DevConfig
 }
