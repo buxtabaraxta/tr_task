@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+    Profile
+{% endblock title %}
+
+{% block content %}
+    {{ super() }}
+    <div class="container">
+        <div class="panel_profile profile">
+            {#            <h1>PROFILE</h1>#}
+            <div class="media">
+                <div class="media-left media-middle">
+                    <img class="media-object" src="{{ current_user.avatar(128) }}">
+                </div>
+                <div class="media-body">
+                    <table>
+                        <tr align="top">
+                            <td></td>
+                            <td><h1>{{ current_user.nickname }}</h1></td>
+                            <tr>
+                        <td></td>
+                        <td><a href="{{ url_for('main.edit_profile', nickname=nickname) }}">Edit profile</a></td>
+                            </tr>
+                        <tr>
+                            <td></td>
+                            <td><b>First name: </b>{{ current_user.firstname }}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><b>Last name: </b>{{ current_user.lastname }}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><b>Country: </b>{{ current_user.country }}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><b>City: </b>{{ current_user.city }}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><b>About Me: </b>{{ current_user.about_me }}</td>
+                        </tr>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

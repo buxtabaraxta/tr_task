@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Login{% endblock title %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    {{ super() }}
+    <div class="container">
+        <div class="auth_panel auth_form">
+            {{ wtf.quick_form(form) }}<br>
+            {% for message in get_flashed_messages() %}
+                {{ message }}
+            {% endfor %}
+
+    </div>
+    </div>
+{% endblock %}
+
+
